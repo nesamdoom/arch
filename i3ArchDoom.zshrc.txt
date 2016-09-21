@@ -1,0 +1,199 @@
+# Path to your oh-my-zsh installation.
+export ZSH=~/.oh-my-zsh
+
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="darkblood"
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+ export UPDATE_ZSH_DAYS=7
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+ HIST_STAMPS="dd/mm/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git atom common-aliases)
+
+# User configuration
+
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+# export MANPATH="/usr/local/man:$MANPATH"
+
+source $ZSH/oh-my-zsh.sh
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+ alias zshconfig="mate ~/.zshrc"
+alias ohmyzsh="mate ~/.oh-my-zsh"
+alias go='gnome-open'
+alias at='atom &'
+
+#found
+#
+dont() { echo "OK, I won't $@, probably would have been a bad idea anyway" }
+
+
+#############################mine here#############################
+clear;
+figlet -t -f slant   "   Terminal Doom    " | lolcat -a -s 33 -p 22 -S 39 -d 1
+
+#calling on distro based rc files
+
+if [ -f ~/.nsmarchrc ] ; then
+    . ~/.nsmarchrc
+fi
+
+if [ -f ~/.nsmdebrc ] ; then
+    .   ~/.nsmdebrc
+fi
+
+#my personal customs
+
+if [ -f ~/.doomrc ]; then
+    . ~/.doomrc
+fi
+
+hst() {
+hst=$(hostname)
+read fnm
+printf "cp $fnm $hst"."$fnm" | sh
+}
+
+rsub(){
+  read sub
+  echo "firefox reddit.com/r/$sub &" | sh
+}
+
+
+
+
+# Example aliases
+ alias ndir='~/doomscripts/nsmdirlst'
+alias .='pwd'
+alias ch='sudo /home/nesamdoom/doomscripts/ch'
+alias moar='~/doomscripts/1moar'
+alias smd='~/doomscripts/smd'
+alias ndirx='~/doomscripts/nsmdirlstx'
+alias lag='ls -agF'
+alias fuck="echo -ne '\e[?1049h\e[1;1H'"
+alias unfuck="echo -ne '\e[?1049l'"
+alias untouch='rm -f'
+alias teeup="tee -a"
+alias rboot='sudo reboot'
+alias sagu="sudo apt-get update"
+alias sagi="sudo apt-get install"
+alias tor="sh -c '"~/tor-browser_en-US/Browser/start-tor-browser" --detach || ([ !  -x "~s/tor-browser_en-US/Browser/start-tor-browser" ] && "$(dirname "$*")"/Browser/start-tor-browser --detach)' dummy %k"
+alias la="ls -alh"
+alias lsr="l -R"
+alias ld="ls -h --group-directories-first"
+alias lad='ls -a --group-directories-first'
+alias l='ls -a --group-directories-first'
+#wasted line
+alias 2bash="tail -n 1 ~/.zshrc |tee -a ~/.bashrc"
+alias 2zsh='tee -a ~/.zshrc'
+alias 2rcs='2zsh ; 2bash'
+alias get="wget -nc -r -k -nH --cut-dir=1 --level=1"
+alias getl="wget -nc -r -k --level=1 -nH --cut-dir=1 --random-wait --input-file=list"
+alias nsmdir="~/doomscripts/nsmdirlst"
+alias opndir="firefox --private-window http://palined.com/search/ &"
+alias tlst="tee -a list"
+alias thmb="~/doomscripts/thumbs"
+alias mtdir="find . -empty -type d -delete"
+alias rmhtml='find . -type f -iname "*.html*" -delete'
+alias rmrobot='find . -type f -iname "*robot*" -delete'
+alias clnup="~/doomscripts/cleanup"
+alias delx='find . -type f -iname "*x*" -delete'
+alias airmon="airmon-ng"
+alias reddit="firefox --private-window reddit.com &"
+alias twitter="firefox twitter.com &"
+alias voat="firefox voat.co &"
+alias putlocker="firefox putlocker.is &"
+alias awkrcs="awk '{print}' | 2zsh|teeup ~/.bashrc"
+alias pfs="sudo pure-ftpd -c 3"
+alias pfss="sudo pure-ftpd-control stop"
+#alias rsub="~/doomscripts/rsub.sh"
+alias vsub="~/doomscripts/vsub.sh"
+alias myip="curl icanhazip.com"
+alias off="poweroff"
+alias whut='echo ¯\\_(ツ)_/¯'
+alias starwars='telnet towel.blinkenlights.nl'
+alias sdo="~/doomscripts/nsmsudopass"
+alias matrix="cmatrix -s -C red -B"
+alias pi="sudo pacman -S"
+
+#syndaemon -i 2 -t -k &
+alias fort="~/doomscripts/fort.nsm"
+alias piq="sudo pacman -Q"
+alias piqi="sudo pacman -Q -i"
+alias x="startx"
+ alias fireplace="cacafire &"
+alias scrn='clear ; screenfetch '
+#alias lmms='cd ~/lmms/projects ; lmms &'
+alias distractme='cacademo &'
+alias sasha="img2txt -x 1 -y 1 ~/Downloads/sasha_grey.jpg"
+alias zhs="zsh"
+alias chuck='clear ;fortune chucknorris'
+alias iad="sudo hostname i3ArchDoom"
+alias xt="xterm -fg white -bg black"
+#xterm transparency
+[ -n "$XTERM_VERSION" ] && transset-df --id "$WINDOWID"  >/dev/null
+
+alias al="alsamixer --no-color"

@@ -1,0 +1,121 @@
+#!/bin/bash
+#
+echo -e "[1;31m   nesaMDoom [0m" |cowsay -f eyes
+#
+#found
+
+alias doh='sudo $(history -p \!\!)'
+
+#mine here#
+
+
+hst() {
+read fnm
+printf "cp $fnm $hst"."$fnm" | sh }
+
+
+rsub() {
+  read sub
+  echo "firefox reddit.com/r/$sub &"
+}
+
+vsub(){
+  read subv
+  echo "firefox voat.com/v/$subv &"
+}
+
+
+#if [ -f ~/.nsmfunc ]; then
+#    . ~/.nsmfunc
+#fi
+
+if [ -f ~/test.nsmfunc ]; then
+    . ~/test.nsmfunc ;
+fi
+
+#
+function rccp {
+\mv  ~/zshrc.txt ~/doomscripts/zshrc.txt;
+\mv ~/bashrc.txt ~/doomscripts/bashrc.txt;
+\mv ~/doomrc.txt ~/doomscripts/doomrc.txt;
+(if [ -f ~/nsmarchrc.txt ]; then
+\mv ~/nsmarchrc.txt ~/doomscripts/nsmarchrc.txt
+fi)
+}
+
+imdb() {
+read imdbsr
+echo "firefox \"http://www.imdb.com/find?ref_=nv_sr_fn&q=$imdbsr&s=all &\"" | sh
+}
+
+function rcbk {
+\cp ~/.zshrc ~/zshrc.txt ; \cp ~/.bashrc ~/bashrc.txt ; \cp ~/.doomrc ~/doomrc.txt
+(if [ -f ~/.nsmarchrc ] ; then
+    \cp ~/.nsmarchrc ~/nsmarchrc.txt
+fi)
+}
+
+foxs() {
+read  srch
+printf "firefox  -search \"$srch\" &" | sh
+}
+
+function site() {
+read etis
+echo "firefox $etis &" |sh
+}
+
+
+# Example aliases
+alias go='gnome-open'
+alias at='atom'
+alias .='pwd'
+
+#leaving a couple aliases in but mostly this will by custom for whatever system i put it on
+alias ch='sudo /home/nesamdoom/doomscripts/ch'
+alias fuck="echo -ne '\e[?1049h\e[1;1H'"
+alias unfuck="echo -ne '\e[?1049l'"
+alias untouch='rm -f'
+#taken out for safety - replaced because i'm not gonna fuck shit alot
+
+#wasted line
+
+#bunch of stuff personalized for this pc
+#not to share outside of my comps
+alias ous8="sudo openvpn /home/nesamdoom/nord/config/us8.nordvpn.com/=.udp1194.ovpn"
+alias pfs="sudo pure-ftpd -c 3"
+alias pfss="sudo pure-ftpd-control stop"d
+alias nmapscan="nmap -sP 192.168.0.0/24"
+alias ftpmint="ftp 192.168.0.204"
+alias pupftp="ftp 192.168.0.207"
+alias 10sets="~/doomscripts/10sets.sh"
+alias mintstore="cd /media/nesamdoom/mintstore1"
+alias us2="nmcli con up id us2"
+alias us1="nmcli con up id us1"
+alias us8="nmcli con up id us8"
+alias ca3="nmcli con up id ca3"
+alias ca2="nmcli con up id ca2"
+alias uk4="nmcli con up id uk4"
+alias double='nmcli con down id Double'
+alias dus2="nmcli con down id us2"
+alias dus1="nmcli con down id us1"
+alias dus8="nmcli con down id us8"
+alias dca3="nmcli con down id ca3"
+alias dca2="nmcli con down id ca2"
+alias duk4="nmcli con down id uk4"
+alias ddouble='nmcli con down id Double'
+alias tus1="us1;sleep 5;tor"
+alias tus2="us2 ; sleep 6; tor"
+alias dus7="nmcli con down id us7"
+alias us7="nmcli con up id us7"
+alias tca3="ca3;sleep 6;tor"
+alias tuk4="uk4;sleep 6;tor"
+alias tca2="ca2;sleep 6;tor"
+alias pi="sudo pacman -S"
+#syndaemon -i 2 -t -k &
+#sudo dhcpcd
+alias pi="sudo pacman -S"
+alias piyu="sudo pacman -Syu"
+alias piq="sudo pacman -Q"
+alias pii="sudo pacman -Si"
+alias myname="img2txt -H 35 -W 225  ~/Pictures/bnna1.png"

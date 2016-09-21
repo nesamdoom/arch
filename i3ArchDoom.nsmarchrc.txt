@@ -1,0 +1,22 @@
+#!/bin/bash
+figlet -r i3ArchDoom
+
+#this is an arch only rc file for me to use, i shall call distro based rcs henseforth on distro
+#related commands. Thank you self, nesaMDoom
+alias pi="sudo pacman -S"
+alias piyu="sudo pacman -Syu"
+alias piq="sudo pacman -Q"
+alias pii="sudo pacman -Si"
+alias dh="sudo dhcpcd"
+alias 1="xrandr --output VGA-1 --mode 1920x1080 ; feh --bg-scale ~/Downloads/Arch-Linux-Wallpaper.png"
+alias 9='xrandr --output VGA-1 --mode 1440x900 ; feh --bg-scale ~/Downloads/Arch-Linux-Wallpaper.png'
+alias 3='sudo dhcpcd '
+alias hn='sudo hostname i3ArchDoom'
+alias co='compton &'
+alias ck='pkill compton'
+alias sg1="feh --bg-scale ~/Pictures/DJ-Sasha-Grey.jpg"
+alias sg2="feh --bg-scale ~/Pictures/sg1.jpg"
+alias sg3="feh --bg-scale ~/Pictures/1sasha.jpg"
+alias sg4="feh --bg-scale ~/Pictures/sasha1.JPG"
+alias bg1='feh --bg-scale ~/Pictures/bSkRNZ1.jpg'
+alias sh="sudo mount -t vboxsf archdoomshare ~/archdoomshare ;sudo mount -t vboxsf pix ~/shared/pix ; sudo mount -t vboxsf music ~/shared/music"

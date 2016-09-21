@@ -1,0 +1,92 @@
+execute pathogen#infect()
+
+filetype plugin on
+
+let g:airline_powerline_fonts = 1
+set laststatus=2
+
+set encoding=utf-8
+set fileencoding=utf-8
+
+	
+
+"map out a couple things
+"
+:nnoremap <C-Tab> :bn <CR>
+:nnoremap <C-S-Tab> :bp <CR>
+:nnoremap <F5> :buffers<CR>:buffer<Space>
+
+
+if has('syntax') && !exists('g:syntax_on')
+  syntax enable
+endif
+
+"got the theme to work. seems fine.
+
+syntax enable
+set background=dark
+colorscheme apprentice
+
+" Show matching brackets when text indicator is over them
+set showmatch
+" How many tenths of a second to blink when matching brackets
+set mat=4
+
+" Return to last edit position when opening files (You want this!)
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
+" Remember info about open buffers on close
+set viminfo^=%
+
+
+" airline status theme
+set showtabline=1
+let g:airline_theme='powerlineish'
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+
+let g:airline#extensions#tabline#enabled = 1
+
+
+
+
+
+" Arrow Key Fix {
+    " https://github.com/spf13/spf13-vim/issues/780
+    if &term[:4] == "xterm" || &term[:5] == 'screen' || &term[:3] == 'rxvt'
+        inoremap <silent> <C-[>OC <RIGHT>
+    endif
+" }
+
+
+" General {
+
+
+" if !has('gui')
+    "set term=$TERM          " Make arrow and other keys work
+" endif
+filetype plugin indent on   " Automatically detect file types.
+syntax on                   " Syntax highlighting
+set mouse=a                 " Automatically enable mouse usage
+set mousehide               " Hide the mouse cursor while typing
+scriptencoding utf-8
+
+" Formatting {
+
+    set nowrap                      " Do not wrap long lines
+set autoindent " Indent at the same level of the previous line
+
+
+:set number
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
